@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh '/opt/homebrew/Cellar/maven/3.9.6/libexec/binmvn -B -DskipTests clean package'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
         stage('Test') {
             steps {
-                sh '/opt/homebrew/Cellar/maven/3.9.6/libexec/bin mvn test'
+                sh 'mvn test'
             }
             post {
                 always {
